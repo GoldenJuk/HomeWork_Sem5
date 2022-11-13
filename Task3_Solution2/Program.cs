@@ -62,4 +62,4 @@ Console.WriteLine($"Разница между максимальным и мин
 
 Console.WriteLine();
 
-Console.ReadKey();
+//Console.ReadKey();
