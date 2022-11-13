@@ -1,34 +1,51 @@
-﻿//Программа, которая принимает на вход два числа (A и B) и возводит число A в натуральную степень B.
-//Для решения задания использование цикла for является обязательным условием.
-//Не использовать встроенный метод возведения в степень.
-
-//Используем "double" для получения результата при отрицательном показателе степени
+﻿//Задайте массив заполненный случайными положительными трёхзначными числами.
+//Напишите программу, которая покажет количество чётных чисел в массиве.
 
 Console.Clear();
 
-double GetPow (double a, int b)
+void FillArray(int[] array)
 {
-    double res = 1;
-    for (int i = 1; i <= Math.Abs(b); i++)
-        {
-            res = res * a;
-        }
-    
-    if (b < 0)
+    for (int i = 0; i < array.Length; i++)
     {
-        res = 1 / res;
-      
+        array[i] = new Random().Next(0,1000);
     }
-     return res;
 }
 
-Console.Write("Введите число А: ");
-double number1 = Convert.ToDouble(Console.ReadLine());
-Console.Write("Введите число В: ");
-int number2 = Convert.ToInt32(Console.ReadLine());
+void PrintArray(int[] array)
+{
+    Console.Write("Массив положительных трёхзначных чисел: ");
+    for (int i = 0; i < array.Length; i++)
+    {
+        Console.Write(array[i] + " ");
+    }
+    Console.WriteLine();
+}
+
+int GetNumberOfEven(int[] array)
+{
+    int result = 0;
+    for (int i = 0; i < array.Length; i++)
+    {
+        if (array[i] % 2 == 0)
+        {
+            result++;
+        }
+    }   
+    return result;
+}
+
+Console.Write("Введите размер массива: ");
+int size = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine();
+int[] arr = new int[size]; 
+
+FillArray(arr);
+PrintArray(arr);
+
 Console.WriteLine();
 
-
-double pow = GetPow(number1, number2);
-Console.WriteLine($"{number1} ^ {number2} = {pow}");
+int res = GetNumberOfEven(arr);
+Console.WriteLine($"Количестство четных чисел в массиве: {res}");
 Console.WriteLine();
+
+//Console.ReadKey();

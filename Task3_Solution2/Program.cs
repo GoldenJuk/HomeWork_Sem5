@@ -3,21 +3,28 @@
 
 Console.Clear();
 
+//Задаем массив случайных вещественных чисел в дипазоне (-100, 100).
+
 void FillArray(double[] array)
 {
-    Console.WriteLine($"Введите массив вещественных чисел, состоящий из {array.Length} чисел: ");
+    Random rnd = new Random();
     for (int i = 0; i < array.Length; i++)
     {
-        array[i] = Convert.ToDouble(Console.ReadLine());
+        //array[i] = Convert.ToDouble(-100 + rnd.Next(200));
+        array[i] = rnd.NextDouble() * 100 - rnd.NextDouble() * 100;
     }
 }
 
 void PrintArray(double[] array)
 {
-    Console.Write("Задан массив чисел: ");
+    Console.WriteLine("Задан массив чисел: ");
+    Console.WriteLine();
     for (int i = 0; i < array.Length; i++)
     {
-        Console.Write(array[i] + "   ");
+        Console.Write("{0,-19}  ", array[i]);
+
+        //Сделаем переход на следующую строку через 5 чисел массива. 
+        if ((i+1) % 5 == 0) Console.WriteLine();
     }
     Console.WriteLine();
 }
@@ -55,19 +62,4 @@ Console.WriteLine($"Разница между максимальным и мин
 
 Console.WriteLine();
 
-
-//Задаем массив вещественных числел в диапазоне (-100 100)
-
-/*Console.Write("Введите размер массива: ");
-int size = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine();
-
-double[] arr = new double[size];
-for (int i = 0; i < arr.Length; i++)
-    {
-    arr[i] = new Random().NextDouble();
-    Console.WriteLine(arr[i]*200-100);
-    }
-
-*/
-Console.ReadKey();
+//Console.ReadKey();
