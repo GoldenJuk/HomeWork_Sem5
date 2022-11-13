@@ -10,6 +10,7 @@ void FillArray(double[] array)
     {
         array[i] = Convert.ToDouble(Console.ReadLine());
     }
+    Console.WriteLine();
 }
 
 void PrintArray(double[] array)
@@ -55,19 +56,4 @@ Console.WriteLine($"Разница между максимальным и мин
 
 Console.WriteLine();
 
-
-//Задаем массив вещественных числел в диапазоне (-100 100)
-
-/*Console.Write("Введите размер массива: ");
-int size = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine();
-
-double[] arr = new double[size];
-for (int i = 0; i < arr.Length; i++)
-    {
-    arr[i] = new Random().NextDouble();
-    Console.WriteLine(arr[i]*200-100);
-    }
-
-*/
-Console.ReadKey();
+//Console.ReadKey();
