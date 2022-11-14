@@ -7,16 +7,19 @@ void FillArray(int[] array)
 {
     for (int i = 0; i < array.Length; i++)
     {
-        array[i] = new Random().Next(0,1000);
+        array[i] = new Random().Next(1,1000);
     }
 }
 
 void PrintArray(int[] array)
 {
-    Console.Write("Массив положительных трёхзначных чисел: ");
+    Console.WriteLine("Массив положительных трёхзначных чисел: ");
+    Console.WriteLine();
     for (int i = 0; i < array.Length; i++)
     {
         Console.Write(array[i] + " ");
+        //Сделаем переход на следующую строку через 25 чисел массива. 
+        if ((i+1) % 25 == 0) Console.WriteLine();
     }
     Console.WriteLine();
 }

@@ -13,10 +13,13 @@ void FillArray(int[] array, int a, int b)
 
 void PrintArray(int[] array)
 {
-    Console.Write("Задан массив чисел: ");
+    Console.WriteLine("Задан массив чисел: ");
+    Console.WriteLine();
     for (int i = 0; i < array.Length; i++)
     {
         Console.Write(array[i] + " ");
+        //Сделаем переход на следующую строку через 25 чисел массива. 
+        if ((i+1) % 25 == 0) Console.WriteLine();
     }
     Console.WriteLine();
 }
@@ -36,20 +39,17 @@ int GetSumElemInOddPos(int[] array)
 
 Console.Write("Введите размер массива: ");
 int size = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine();
 Console.Write("Введите диапазон массива от: ");
 int from = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine();
 Console.Write("Введите диапазон массива до: ");
 int before = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine();
 
 int[] arr = new int[size];
 FillArray(arr,from,before);
 PrintArray(arr);
-Console.WriteLine();
 
 int res = GetSumElemInOddPos(arr);
 Console.WriteLine($"Сумма элементов, стоящих на нечётных позициях = {res}");
+Console.WriteLine();
 
 //Console.ReadKey();
